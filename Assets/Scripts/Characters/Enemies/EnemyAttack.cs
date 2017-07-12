@@ -29,11 +29,16 @@ public class EnemyAttack : MonoBehaviour {
             float distance = Vector2.Distance(transform.position, _enemyTargetting.Target.transform.position);
             if (distance <= _enemy.AttackRange)
             {
+                _enemy.IsAttacking = true;
                 if (_readyToAttack)
                 {
                     _readyToAttack = false;
                     StartCoroutine(AttackCooldown());  
                 }
+            }
+            else
+            {
+                _enemy.IsAttacking = false;
             }
         }
 
