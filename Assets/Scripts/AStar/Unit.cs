@@ -10,7 +10,6 @@ public class Unit : MonoBehaviour {
     public Transform target;
     Vector3[] path;
     int targetIndex;
-    private bool _isAttacking;
     private Quaternion _rotation;
 
     void Start()
@@ -56,12 +55,15 @@ public class Unit : MonoBehaviour {
                     }
                     currentWaypoint = path[targetIndex];
                 }
-                if (!_isAttacking)
+                if (!_enemy.IsAttacking)
                 {
                     transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, Time.deltaTime * _enemy.MovementSpeed);
                     Vector3 direction = transform.position - currentWaypoint;
-                    //_rgb2d.velocity = Vector2.zero;
                     RotateEnemy();
+                }
+                else
+                {
+                    _rgb2d.velocity = Vector2.zero;
                 }
                 yield return null;
             }

@@ -7,12 +7,19 @@ using DG.Tweening;
 
 public class Enemy : Character, IDamageable{
 
+    protected bool _isAttacking;
     [SerializeField]protected float _damageGrowFactor;
     [SerializeField]protected float _healthGrowFactor;
     [SerializeField]protected float _goldValueGrowFactor;
     private EnemySpawner _enemySpawner;
     private Image _healthBar;
     [SerializeField]private Sprite[] _healthBars;
+
+    public bool IsAttacking
+    {
+        get { return _isAttacking; }
+        set { _isAttacking = value; }
+    }
 
     protected override void Awake()
     {
@@ -25,6 +32,10 @@ public class Enemy : Character, IDamageable{
 
     void Update()
     {
+        if(_rgb2d.velocity != Vector2.zero)
+        {
+            StartCoroutine(ResetVelocity());
+        }
         if (_currentHealth <= 0)
         {
             StartCoroutine(DeathRoutine());
@@ -62,6 +73,12 @@ public class Enemy : Character, IDamageable{
         {
             _healthBar.sprite = _healthBars[2];
         }
+    }
+
+    IEnumerator ResetVelocity()
+    {
+        yield return new WaitForSeconds(0.2f);
+        _rgb2d.velocity = Vector2.zero;
     }
 
 }
