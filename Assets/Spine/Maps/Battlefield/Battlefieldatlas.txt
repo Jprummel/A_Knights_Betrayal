@@ -1,0 +1,34 @@
+
+Battlefield.png
+size: 4509,543
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Battlefield/Dead_Knight_Left
+  rotate: false
+  xy: 4306, 334
+  size: 201, 207
+  orig: 201, 207
+  offset: 0, 0
+  index: -1
+Battlefield/Dead_Knight_Right
+  rotate: false
+  xy: 4306, 268
+  size: 198, 64
+  orig: 198, 64
+  offset: 0, 0
+  index: -1
+Battlefield/Fly
+  rotate: false
+  xy: 4306, 254
+  size: 15, 12
+  orig: 15, 12
+  offset: 0, 0
+  index: -1
+Battlefield/Water
+  rotate: false
+  xy: 2, 2
+  size: 4302, 539
+  orig: 4302, 539
+  offset: 0, 0
+  index: -1
