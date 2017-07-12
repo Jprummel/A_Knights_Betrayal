@@ -19,6 +19,11 @@ public class Unit : MonoBehaviour {
         InvokeRepeating("FindPath", 0.01f, 0.25f);
     }
 
+    private void LateUpdate()
+    {
+        transform.rotation = _rotation;
+    }
+
     void FindPath()
     {
         if (target != null && !_enemy.IsDead)
@@ -72,6 +77,7 @@ public class Unit : MonoBehaviour {
 
     void RotateEnemy()
     {
+        Debug.Log(_rotation);
         if (transform.position.x > target.position.x)
         {
             _rotation.y = 180;
